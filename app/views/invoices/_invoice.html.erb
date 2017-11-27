@@ -1,18 +1,13 @@
+
 <table>
   <tr>
-    <th>Order Id</th>
-    <th>Product
-    <th>Price
-    <th>Customer</th>
+    <th>Invoice Id
+    <th>Customer</th>  
   </tr>
-  <% @orders.each do |order| %>
-    <% order.products.each do |product| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= order.customer.name %></td>
-      </tr>
-    <% end %>
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <th><%= invoice.id %></th>
+      <th><%= invoice.orders.first ? invoice.orders.first.customer.name : "No Orders" %></th>
+    </tr>
   <% end %>
 </table>
